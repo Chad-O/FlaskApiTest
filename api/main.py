@@ -80,7 +80,34 @@ def getFlights(id):
                 "errors": "could not connect to db"
             }
         
+@app.route('/flights/<id>/seats/<bpid>', methods=['GET'])
+def getSeats(id, bpid):
+    idVuelo = id
+    idBoard = bpid
+    try:
+        conn = mysql.connector.connect(host='mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
+                                        database='airline',
+                                        user='bsale_test',
+                                        password='bsale_test')
 
+    finally:
+        if conn.is_connected():
+#Realizar Queries, 1) recibir toda la informacion del vuelo, utilizando el id recibido por link.
+            queryFlight = ("SELECT bp.boarding_pass_id, s.seat_id, s.seat_column, s.seat_row FROM boarding_pass AS bp JOIN seat AS s ON bp.seat_id = s.seat_id WHERE bp.flight_id = %s AND bp.boarding_pass_id = %s")
+            cursor = conn.cursor()
+            cursor.execute(queryFlight, (idVuelo, idBoard))
+            ress = cursor.fetchall()
+            print(ress)
+            cursor.close()
+            conn.close()
+            print("Bye bye")
+    return{
+        "code": 200,
+        "idBoard": ress[0][0],
+        "idSeat": ress[0][1],
+        "seatCol": ress[0][2],
+        "seatRow": ress[0][3]
+    }
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
