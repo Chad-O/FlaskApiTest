@@ -20,7 +20,6 @@ def BusquedaAsientos(val):
         #boardVal = pasajero["boardingPassId"]    
         querySeats ="https://bsalesapi.herokuapp.com/flights/"+ str(val) +"/seats/"+str(boardVal)
         resSeats = requests.get(querySeats)
-        print(type(resSeats.json()["seatCol"]))
         boardListCol.append(resSeats.json()["seatCol"])
         boardListRow.append(resSeats.json()["seatRow"])
         i+=1
