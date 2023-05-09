@@ -1,1 +1,8 @@
-/flights/<id>/seat
+        queryFlight = ("SELECT bp.boarding_pass_id, s.seat_id, s.seat_column, s.seat_row FROM boarding_pass AS bp JOIN seat AS s ON bp.seat_id = s.seat_id WHERE bp.flight_id = %s AND bp.boarding_pass_id = %s")
+        cursor = conn.cursor()
+        cursor.execute(queryFlight, (idVuelo, idBoard))
+        ress = cursor.fetchall()
+        print(ress)
+        cursor.close()
+        conn.close()
+        print("Bye bye")

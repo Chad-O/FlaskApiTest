@@ -89,18 +89,17 @@ def getSeats(id, bpid):
                                         database='airline',
                                         user='bsale_test',
                                         password='bsale_test')
-
-    finally:
-        if conn.is_connected():
 #Realizar Queries, 1) recibir toda la informacion del vuelo, utilizando el id recibido por link.
-            queryFlight = ("SELECT bp.boarding_pass_id, s.seat_id, s.seat_column, s.seat_row FROM boarding_pass AS bp JOIN seat AS s ON bp.seat_id = s.seat_id WHERE bp.flight_id = %s AND bp.boarding_pass_id = %s")
-            cursor = conn.cursor()
-            cursor.execute(queryFlight, (idVuelo, idBoard))
-            ress = cursor.fetchall()
-            print(ress)
-            cursor.close()
-            conn.close()
-            print("Bye bye")
+    finally:
+
+        queryFlight = ("SELECT bp.boarding_pass_id, s.seat_id, s.seat_column, s.seat_row FROM boarding_pass AS bp JOIN seat AS s ON bp.seat_id = s.seat_id WHERE bp.flight_id = %s AND bp.boarding_pass_id = %s")
+        cursor = conn.cursor()
+        cursor.execute(queryFlight, (idVuelo, idBoard))
+        ress = cursor.fetchall()
+        print(ress)
+        cursor.close()
+        conn.close()
+        print("Bye bye")
     return{
         "code": 200,
         "idBoard": ress[0][0],
