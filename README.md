@@ -1,5 +1,6 @@
-# bSalestest
+# FlaskApi Test
 ## Carpeta API:
+
 
 main.py: Contiene la llamada a la base de datos y la ruta del app.
 
@@ -8,6 +9,8 @@ wsgi.py: Funciona como una "interfaz" para el main.py de modo que no se interact
 Procfile: Permite a gunicorn determinar qué archivo utilizar. Se desplegó en Heroku.
 
 ## Ruta:
+
+La ruta está desabilitada.
 
 https://bsalesapi.herokuapp.com/flights/#/passengers
 
