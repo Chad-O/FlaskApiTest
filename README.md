@@ -1,5 +1,7 @@
 # FlaskApi Test
 
+FlaskApi Test is a project featuring a Flask-based API with essential components such as main.py for database calls and routing, wsgi.py as an interface for route handling, and a Procfile for Gunicorn configuration on Heroku. The purpose of this project was to make a simulation of passengers boarding a plane, as to know and optimize the boarding process.
+
 ## API Folder:
 
 - **main.py**: Contains the call to the database and defines the app's routing.
