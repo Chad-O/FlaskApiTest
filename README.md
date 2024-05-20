@@ -1,23 +1,23 @@
 # FlaskApi Test
-## Carpeta API:
 
+## API Folder:
 
-main.py: Contiene la llamada a la base de datos y la ruta del app.
+- **main.py**: Contains the call to the database and defines the app's routing.
 
-wsgi.py: Funciona como una "interfaz" para el main.py de modo que no se interactúa directamente con la definición de la ruta.
+- **wsgi.py**: Acts as an "interface" for main.py, ensuring that the route definitions are not directly interacted with.
 
-Procfile: Permite a gunicorn determinar qué archivo utilizar. Se desplegó en Heroku.
+- **Procfile**: Allows Gunicorn to determine which file to use. This project is deployed on Heroku.
 
-## Ruta:
+## Route:
 
-La ruta está desabilitada.
+The route is disabled.
 
 https://bsalesapi.herokuapp.com/flights/#/passengers
 
-Donde # es el número del vuelo, de 1 a 4.
+Where # is the flight number, from 1 to 4.
 
-## Para montar el api localmente:
-  
-  - Ingresar a la carpeta api por consola y correr: " pip install -r requirements.txt"
-  - En Consola correr: ".\env\Scripts\Activate"
-  - Correr el archivo main
+## To run the API locally:
+
+- Navigate to the api folder in the console and run: `pip install -r requirements.txt`
+- In the console, run: `.\env\Scripts\Activate`
+- Run the main file
